@@ -51,11 +51,9 @@ public class UserServiceImpl implements UserService {
     public boolean registerUser(User user) {
 
         try {
-            System.out.println("TRYING");
             return userDAO.registerUser(user);
         } catch (Exception e) {
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!");
-            System.err.println(e.getMessage());
+            
         }
         return false;
     }

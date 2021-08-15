@@ -77,4 +77,6 @@ public interface TextConstants {
 
     String BOOK_IS_AVAILABLE = "book.is.available";
     String BOOK_IS_NOT_AVAILABLE = "book.is.not.available";
+
+    String LOGIN_IS_TAKEN = "login.is.taken";
 }

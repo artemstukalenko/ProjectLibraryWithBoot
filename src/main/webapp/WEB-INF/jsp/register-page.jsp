@@ -13,8 +13,8 @@
     ${locale.loginUsername}: <form:input path="username"/>
     <form:errors path="username"/>
 
-    <b <c:if test="${!loginNotValid}"><c:out value="hidden='true'"/></c:if>>>
-        Login is taken, try again
+    <b <c:if test="${!loginNotValid}"><c:out value="hidden='true'"/></c:if>>
+        ${locale.loginIsTaken}
     </b>
 
     <br><br>

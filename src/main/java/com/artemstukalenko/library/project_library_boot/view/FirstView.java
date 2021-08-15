@@ -90,6 +90,8 @@ public class FirstView {
     public static String bookIsAvailable = bundle.getString(BOOK_IS_AVAILABLE);
     public static String bookIsNotAvailable = bundle.getString(BOOK_IS_NOT_AVAILABLE);
 
+    public static String loginIsTaken = bundle.getString(LOGIN_IS_TAKEN);
+
     public static void initStringFields(ResourceBundle bundle) {
         usersListString = bundle.getString(USERS_LIST_STRING);
         seeUsersList = bundle.getString(SEE_USERS_LIST);
@@ -167,6 +169,8 @@ public class FirstView {
 
         bookIsAvailable = bundle.getString(BOOK_IS_AVAILABLE);
         bookIsNotAvailable = bundle.getString(BOOK_IS_NOT_AVAILABLE);
+
+        loginIsTaken = bundle.getString(LOGIN_IS_TAKEN);
     }
 
     public FirstView() {}
@@ -419,5 +423,9 @@ public class FirstView {
 
     public String getBookIsNotAvailable() {
         return bookIsNotAvailable;
+    }
+
+    public String getLoginIsTaken() {
+        return loginIsTaken;
     }
 }
