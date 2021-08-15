@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @Service
@@ -47,7 +49,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean registerUser(User user) {
-        return userDAO.registerUser(user);
+
+        try {
+            System.out.println("TRYING");
+            return userDAO.registerUser(user);
+        } catch (Exception e) {
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!");
+            System.err.println(e.getMessage());
+        }
+        return false;
     }
 
     @Override

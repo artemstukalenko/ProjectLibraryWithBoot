@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -141,12 +142,13 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     @Transactional
-    public boolean registerUser(User user) {
+    public boolean registerUser(User user) throws SQLIntegrityConstraintViolationException {
         Authority newUserAuthority = new Authority(user.getUsername(), "ROLE_USER");
 
         user.setPassword(getEncodedPassword(user.getPassword()));
 
         entityManager.persist(user);
+
         entityManager.persist(newUserAuthority);
 
         return true;
