@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
@@ -11,6 +12,12 @@
 
     ${locale.loginUsername}: <form:input path="username"/>
     <form:errors path="username"/>
+
+    <b <c:if test="${!loginNotValid}"><c:out value="hidden='true'"/></c:if>>>
+        Login is taken, try again
+    </b>
+
+    <br><br>
     ${locale.loginPassword}: <form:password path="password"/>
     <form:errors path="password"/>
 

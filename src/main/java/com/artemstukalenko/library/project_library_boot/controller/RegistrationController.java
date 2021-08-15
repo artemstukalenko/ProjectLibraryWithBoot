@@ -67,8 +67,13 @@ public class RegistrationController {
     }
 
     @RequestMapping("/registerNewUser")
-    public String registerNewUser(@ModelAttribute("potentialUser") User potentialUser1, Model model) {
-        userService.registerUser(potentialUser1);
+    public String registerNewUser(@ModelAttribute("potentialUser") User potentialUser1,
+                                  Model model) {
+
+        if(!userService.registerUser(potentialUser1)) {
+            model.addAttribute("loginNotValid", true);
+            return "register-page";
+        }
 
         potentialUser1.setUserDetails(new UserDetails(potentialUser1));
 
