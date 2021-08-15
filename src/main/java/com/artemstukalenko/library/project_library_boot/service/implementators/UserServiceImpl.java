@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
         try {
             return userDAO.registerUser(user);
         } catch (Exception e) {
-            
+
         }
         return false;
     }
