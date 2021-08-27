@@ -94,14 +94,6 @@
     </c:forEach>
 
 </table>
-<br/><br/>
-<c:forEach var="number" items="${pagesCount}">
-    <c:url var="changePageButton" value="booksList">
-        <c:param name="pageNumber" value="${number}"/>
-    </c:url>
-    <input type="button" value="${number}" onclick="window.location.href = '${changePageButton}'"/>
-    &nbsp;&nbsp;
-</c:forEach>
 
 <br><br>
 <security:authorize access="hasRole('ADMIN')">
@@ -110,7 +102,7 @@
 
 <br><br><br>
 
-<form:form action="getUnfilteredBookList" modelAttribute="locale">
+<form:form action="booksList" modelAttribute="locale">
 
     <input type="submit" value="${locale.showAllBooksButton}"/>
 
