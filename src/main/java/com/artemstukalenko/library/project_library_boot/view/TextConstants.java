@@ -33,6 +33,9 @@ public interface TextConstants {
     String ADD_NEW_BOOK = "add.new.book";
     String DELETE_BOOK = "delete.book";
     String SHOW_ALL_BOOKS_BUTTON = "show.all.books.button";
+    String REMOVE_FILTERS_BUTTON = "remove.filters.button";
+    String PAGES_LABEL = "pages";
+    String ENTER_FULL_BOOK_INFO_LABEL = "enter.full.book.info.label";
 
     String LOGIN_USERNAME = "login.username";
     String LOGIN_PASSWORD = "login.password";
@@ -79,4 +82,16 @@ public interface TextConstants {
     String BOOK_IS_NOT_AVAILABLE = "book.is.not.available";
 
     String LOGIN_IS_TAKEN = "login.is.taken";
+
+    String USERNAME_IS_INVALID = "username.is.invalid";
+    String FIRST_NAME_IS_INVALID = "firstName.is.invalid";
+    String LAST_NAME_IS_INVALID = "lastName.is.invalid";
+    String EMAIL_IS_INVALID = "email.is.invalid";
+    String PHONE_NUMBER_IS_INVALID = "phoneNumber.is.invalid";
+    String ADDRESS_IS_INVALID = "address.is.invalid";
+
+    String LIBRARIAN_LABEL = "librarian.label";
+    String ADMIN_LABEL = "admin.label";
+
+    String ERROR_MESSAGE_FORBIDDEN = "error.message.forbidden";
 }

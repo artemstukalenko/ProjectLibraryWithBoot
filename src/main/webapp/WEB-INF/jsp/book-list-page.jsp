@@ -95,6 +95,7 @@
 
 </table>
 <br/><br/>
+${locale.pagesLabel}
 <c:forEach var="number" items="${pagesCount}">
     <c:url var="changePageButton" value="booksList">
         <c:param name="pageNumber" value="${number}"/>
@@ -112,7 +113,7 @@
 
 <form:form action="getUnfilteredBookList" modelAttribute="locale">
 
-    <input type="submit" value="${locale.showAllBooksButton}"/>
+    <input type="submit" value="${locale.removeFiltersButton}"/>
 
 </form:form>
 

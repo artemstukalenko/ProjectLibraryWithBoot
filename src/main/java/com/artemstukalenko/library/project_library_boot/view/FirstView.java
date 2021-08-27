@@ -2,10 +2,10 @@ package com.artemstukalenko.library.project_library_boot.view;
 
 import org.springframework.stereotype.Component;
 
-import static com.artemstukalenko.library.project_library_boot.view.TextConstants.*;
-
 import java.util.Locale;
 import java.util.ResourceBundle;
+
+import static com.artemstukalenko.library.project_library_boot.view.TextConstants.*;
 
 @Component
 public class FirstView {
@@ -45,6 +45,9 @@ public class FirstView {
     public static String addNewBook = bundle.getString(ADD_NEW_BOOK);
     public static String deleteBook = bundle.getString(DELETE_BOOK);
     public static String showAllBooksButton = bundle.getString(SHOW_ALL_BOOKS_BUTTON);
+    public static String removeFiltersButton = bundle.getString(REMOVE_FILTERS_BUTTON);
+    public static String pagesLabel = bundle.getString(PAGES_LABEL);
+    public static String enterFullBookInfoLabel = bundle.getString(ENTER_FULL_BOOK_INFO_LABEL);
 
     public static String loginUsername = bundle.getString(LOGIN_USERNAME);
     public static String loginPassword = bundle.getString(LOGIN_PASSWORD);
@@ -92,6 +95,18 @@ public class FirstView {
 
     public static String loginIsTaken = bundle.getString(LOGIN_IS_TAKEN);
 
+    public static String usernameIsInvalid = bundle.getString(USERNAME_IS_INVALID);
+    public static String firstNameIsInvalid = bundle.getString(FIRST_NAME_IS_INVALID);
+    public static String lastNameIsInvalid = bundle.getString(LAST_NAME_IS_INVALID);
+    public static String emailIsInvalid = bundle.getString(EMAIL_IS_INVALID);
+    public static String phoneNumberIsInvalid = bundle.getString(PHONE_NUMBER_IS_INVALID);
+    public static String addressIsInvalid = bundle.getString(ADDRESS_IS_INVALID);
+
+    public static String librarianLabel = bundle.getString(LIBRARIAN_LABEL);
+    public static String adminLabel = bundle.getString(ADMIN_LABEL);
+
+    public static String errorMessageForbidden = bundle.getString(ERROR_MESSAGE_FORBIDDEN);
+
     public static void initStringFields(ResourceBundle bundle) {
         usersListString = bundle.getString(USERS_LIST_STRING);
         seeUsersList = bundle.getString(SEE_USERS_LIST);
@@ -125,6 +140,9 @@ public class FirstView {
         addNewBook = bundle.getString(ADD_NEW_BOOK);
         deleteBook = bundle.getString(DELETE_BOOK);
         showAllBooksButton = bundle.getString(SHOW_ALL_BOOKS_BUTTON);
+        removeFiltersButton = bundle.getString(REMOVE_FILTERS_BUTTON);
+        pagesLabel = bundle.getString(PAGES_LABEL);
+        enterFullBookInfoLabel = bundle.getString(ENTER_FULL_BOOK_INFO_LABEL);
 
         loginUsername = bundle.getString(LOGIN_USERNAME);
         loginPassword = bundle.getString(LOGIN_PASSWORD);
@@ -171,6 +189,18 @@ public class FirstView {
         bookIsNotAvailable = bundle.getString(BOOK_IS_NOT_AVAILABLE);
 
         loginIsTaken = bundle.getString(LOGIN_IS_TAKEN);
+
+        usernameIsInvalid = bundle.getString(USERNAME_IS_INVALID);
+        firstNameIsInvalid = bundle.getString(FIRST_NAME_IS_INVALID);
+        lastNameIsInvalid = bundle.getString(LAST_NAME_IS_INVALID);
+        emailIsInvalid = bundle.getString(EMAIL_IS_INVALID);
+        phoneNumberIsInvalid = bundle.getString(PHONE_NUMBER_IS_INVALID);
+        addressIsInvalid = bundle.getString(ADDRESS_IS_INVALID);
+
+        librarianLabel = bundle.getString(LIBRARIAN_LABEL);
+        adminLabel = bundle.getString(ADMIN_LABEL);
+
+        errorMessageForbidden = bundle.getString(ERROR_MESSAGE_FORBIDDEN);
     }
 
     public FirstView() {}
@@ -185,6 +215,10 @@ public class FirstView {
         bundle = ResourceBundle.getBundle(RESOURCE_BUNDLE_NAME, new Locale("en", "EN"));
 
         initStringFields(bundle);
+    }
+
+    public String getSort() {
+        return sort;
     }
 
     public String getUsersListString() {return usersListString;}
@@ -217,6 +251,10 @@ public class FirstView {
         return statusTableHeader;
     }
 
+    public String getRemoveFiltersButton() {
+        return removeFiltersButton;
+    }
+
     public String getUserBlocked() {
         return userBlocked;
     }
@@ -243,6 +281,10 @@ public class FirstView {
 
     public String getUserAddress() {
         return userAddress;
+    }
+
+    public String getEnterFullBookInfoLabel() {
+        return enterFullBookInfoLabel;
     }
 
     public String getBookId() {
@@ -427,5 +469,49 @@ public class FirstView {
 
     public String getLoginIsTaken() {
         return loginIsTaken;
+    }
+
+    public String getUsernameIsInvalid() {
+        return usernameIsInvalid;
+    }
+
+    public String getFirstNameIsInvalid() {
+        return firstNameIsInvalid;
+    }
+
+    public String getLastNameIsInvalid() {
+        return lastNameIsInvalid;
+    }
+
+    public String getEmailIsInvalid() {
+        return emailIsInvalid;
+    }
+
+    public String getPhoneNumberIsInvalid() {
+        return phoneNumberIsInvalid;
+    }
+
+    public String getAddressIsInvalid() {
+        return addressIsInvalid;
+    }
+
+    public static ResourceBundle getBundle() {
+        return bundle;
+    }
+
+    public String getLibrarianLabel() {
+        return librarianLabel;
+    }
+
+    public String getAdminLabel() {
+        return adminLabel;
+    }
+
+    public String getErrorMessageForbidden() {
+        return errorMessageForbidden;
+    }
+
+    public String getPagesLabel() {
+        return pagesLabel;
     }
 }
