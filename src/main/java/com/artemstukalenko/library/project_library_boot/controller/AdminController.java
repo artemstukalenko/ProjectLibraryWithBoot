@@ -75,9 +75,9 @@ public class AdminController {
 
     @RequestMapping("/deleteUser")
     public String deleteUser(@RequestParam("userName") String username, Model model) {
+        LOGGER.info("Deleted user: " + userService.findUserByUsername(username));
         userService.deleteUser(username);
         model.addAttribute("allUsers", getUpdatedUserList());
-        LOGGER.info("Deleted user: " + userService.findUserByUsername(username));
 
         return "user-list-page";
     }

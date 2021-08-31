@@ -1,42 +1,45 @@
 package com.artemstukalenko.library.project_library_boot.service.implementators;
 
-import com.artemstukalenko.library.project_library_boot.dao.SubscriptionDAO;
 import com.artemstukalenko.library.project_library_boot.entity.Subscription;
+import com.artemstukalenko.library.project_library_boot.repositories.SubscriptionRepository;
 import com.artemstukalenko.library.project_library_boot.service.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SubscriptionServiceImpl implements SubscriptionService {
 
     @Autowired
-    SubscriptionDAO subscriptionDAO;
+    SubscriptionRepository subscriptionRepository;
 
     @Override
     public boolean registerSubscriptionInDB(Subscription subscriptionToRegister) {
-        return subscriptionDAO.registerSubscriptionInDB(subscriptionToRegister);
+        subscriptionRepository.save(subscriptionToRegister);
+        return true;
     }
 
     @Override
     public List<Subscription> getAllSubscriptions() {
-        return subscriptionDAO.getAllSubscriptions();
+        return subscriptionRepository.findAll();
     }
 
     @Override
     public Subscription findSubscriptionById(int id) {
-        return subscriptionDAO.findSubscriptionById(id);
+        Optional<Subscription> foundSubscription = subscriptionRepository.findById(id);
+        return Optional.ofNullable(foundSubscription.get()).orElse(new Subscription());
     }
 
     @Override
     public boolean deleteSubscriptionFromDB(int id) {
-        return subscriptionDAO.deleteSubscriptionFromDB(id);
+        subscriptionRepository.deleteById(id);
+        return true;
     }
 
     @Override
     public Subscription findSubscriptionByBookId(int bookId) {
-        return subscriptionDAO.findSubscriptionByBookId(bookId);
+        return subscriptionRepository.findSubscriptionByBookId(bookId);
     }
 }

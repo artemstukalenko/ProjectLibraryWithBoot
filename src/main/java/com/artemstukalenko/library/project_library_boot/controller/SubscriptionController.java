@@ -80,13 +80,13 @@ public class SubscriptionController {
     public String returnBook(@RequestParam("subscriptionId") int id, Model model) {
         processedSubscription = subscriptionService.findSubscriptionById(id);
 
+        LOGGER.info("User " + currentUser + " returned a book: " + bookService.findBookById(processedSubscription.getBookId()));
         subscriptionService.deleteSubscriptionFromDB(processedSubscription
                 .getSubscriptionId());
         bookService.setTaken(processedSubscription.getBookId(), false);
 
         model.addAttribute("userSubscriptionList", userService.
                 findUserByUsername(currentUser.getUsername()).getSubscriptionList());
-        LOGGER.info("User " + currentUser + " returned a book: " + bookService.findBookById(processedSubscription.getBookId()));
 
         return "my-subscriptions";
     }

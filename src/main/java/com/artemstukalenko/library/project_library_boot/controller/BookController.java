@@ -135,19 +135,19 @@ public class BookController {
     public String addNewBook(@ModelAttribute("newBook") Book bookToAdd, Model model) {
         bookService.addNewBook(bookToAdd);
 
-        model.addAttribute("allBooks", bookService.getAllBooks());
+        currentBookList = bookService.getAllBooks();
         LOGGER.info("Added book: " + bookToAdd);
 
-        return "book-list-page";
+        return "forward:/booksList";
     }
 
     @RequestMapping("/deleteBook")
     public String deleteBook(@RequestParam("bookId") int bookId, Model model) {
+        LOGGER.info("Deleted book: " + bookService.findBookById(bookId));
         bookService.deleteBook(bookId);
 
-        model.addAttribute("allBooks", bookService.getAllBooks());
-        LOGGER.info("Deleted book: " + bookService.findBookById(bookId));
+        currentBookList = bookService.getAllBooks();
 
-        return "book-list-page";
+        return "forward:/booksList";
     }
 }

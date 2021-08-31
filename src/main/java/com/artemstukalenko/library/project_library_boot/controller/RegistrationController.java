@@ -58,6 +58,7 @@ public class RegistrationController {
 
         if(detailsAreNotValid) {
             userService.deleteUser(potentialUser.getUsername());
+            return "redirect:/login";
         }
 
         LOGGER.info("Registered user: " + potentialUser + "; " + newUserDetails);

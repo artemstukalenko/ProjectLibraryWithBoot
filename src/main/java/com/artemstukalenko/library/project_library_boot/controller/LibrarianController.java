@@ -60,11 +60,11 @@ public class LibrarianController {
 
     @RequestMapping("/denyRequest")
     public String denyRequest(@RequestParam("requestId") int requestId, Model model) {
+        LOGGER.info("Request denied: " + customSubscriptionRequestService.findRequestById(requestId));
         customSubscriptionRequestService.deleteCustomSubscriptionRequestFromDB(requestId);
 
         model.addAttribute("allSubscriptions", subscriptionService.getAllSubscriptions());
         model.addAttribute("allRequests", customSubscriptionRequestService.getAllRequests());
-        LOGGER.info("Request denied: " + customSubscriptionRequestService.findRequestById(requestId));
 
         return "subscriptions-page";
     }
