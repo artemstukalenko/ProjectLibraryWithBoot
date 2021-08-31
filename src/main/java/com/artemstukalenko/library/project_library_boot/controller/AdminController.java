@@ -6,6 +6,8 @@ import com.artemstukalenko.library.project_library_boot.service.BookService;
 import com.artemstukalenko.library.project_library_boot.service.UserService;
 import com.artemstukalenko.library.project_library_boot.utility.PenaltyCalculator;
 import com.artemstukalenko.library.project_library_boot.view.FirstView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +32,8 @@ public class AdminController {
 
     @Autowired
     PenaltyCalculator penaltyCalculator;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(RegistrationController.class);
 
     private List<User> getUpdatedUserList() {
         return userService.getAllUsers();
@@ -73,6 +77,7 @@ public class AdminController {
     public String deleteUser(@RequestParam("userName") String username, Model model) {
         userService.deleteUser(username);
         model.addAttribute("allUsers", getUpdatedUserList());
+        LOGGER.info("Deleted user: " + userService.findUserByUsername(username));
 
         return "user-list-page";
     }

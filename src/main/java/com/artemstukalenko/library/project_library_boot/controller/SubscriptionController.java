@@ -10,6 +10,8 @@ import com.artemstukalenko.library.project_library_boot.service.CustomSubscripti
 import com.artemstukalenko.library.project_library_boot.service.SubscriptionService;
 import com.artemstukalenko.library.project_library_boot.service.UserService;
 import com.artemstukalenko.library.project_library_boot.view.FirstView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,6 +48,8 @@ public class SubscriptionController {
 
     Subscription processedSubscription;
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(RegistrationController.class);
+
     @ModelAttribute
     public void addEssentialAttributes(Model model) {
         model.addAttribute("locale", controlledView);
@@ -67,6 +71,7 @@ public class SubscriptionController {
 
         model.addAttribute("userSubscriptionList", userService.
                 findUserByUsername(currentUser.getUsername()).getSubscriptionList());
+        LOGGER.info("Subscription arranged: " + processedSubscription);
 
         return "my-subscriptions";
     }
@@ -81,6 +86,7 @@ public class SubscriptionController {
 
         model.addAttribute("userSubscriptionList", userService.
                 findUserByUsername(currentUser.getUsername()).getSubscriptionList());
+        LOGGER.info("User " + currentUser + " returned a book: " + bookService.findBookById(processedSubscription.getBookId()));
 
         return "my-subscriptions";
     }
@@ -116,6 +122,7 @@ public class SubscriptionController {
 
         model.addAttribute("userSubscriptionList", userService.
                 findUserByUsername(currentUser.getUsername()).getSubscriptionList());
+        LOGGER.info("New custom request registered: " + processedRequest);
 
         return "my-subscriptions";
     }

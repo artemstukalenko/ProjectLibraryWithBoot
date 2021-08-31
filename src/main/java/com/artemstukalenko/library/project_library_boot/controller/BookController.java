@@ -6,6 +6,8 @@ import com.artemstukalenko.library.project_library_boot.service.UserService;
 import com.artemstukalenko.library.project_library_boot.utility.Searcher;
 import com.artemstukalenko.library.project_library_boot.utility.Sorter;
 import com.artemstukalenko.library.project_library_boot.view.FirstView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,6 +40,8 @@ public class BookController {
     Searcher searcher;
 
     List<Book> currentBookList;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(RegistrationController.class);
 
     @ModelAttribute
     public void addEssentialAttributes(Model model) {
@@ -132,6 +136,7 @@ public class BookController {
         bookService.addNewBook(bookToAdd);
 
         model.addAttribute("allBooks", bookService.getAllBooks());
+        LOGGER.info("Added book: " + bookToAdd);
 
         return "book-list-page";
     }
@@ -141,6 +146,7 @@ public class BookController {
         bookService.deleteBook(bookId);
 
         model.addAttribute("allBooks", bookService.getAllBooks());
+        LOGGER.info("Deleted book: " + bookService.findBookById(bookId));
 
         return "book-list-page";
     }

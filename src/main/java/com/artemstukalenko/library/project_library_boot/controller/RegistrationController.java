@@ -4,6 +4,8 @@ import com.artemstukalenko.library.project_library_boot.entity.User;
 import com.artemstukalenko.library.project_library_boot.entity.UserDetails;
 import com.artemstukalenko.library.project_library_boot.service.UserService;
 import com.artemstukalenko.library.project_library_boot.view.FirstView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,8 @@ import javax.validation.Valid;
 
 @Controller
 public class RegistrationController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(RegistrationController.class);
 
     @Autowired
     UserService userService;
@@ -55,6 +59,8 @@ public class RegistrationController {
         if(detailsAreNotValid) {
             userService.deleteUser(potentialUser.getUsername());
         }
+
+        LOGGER.info("Registered user: " + potentialUser + "; " + newUserDetails);
 
         return "redirect:/login";
     }

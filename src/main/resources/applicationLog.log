@@ -1,0 +1,4 @@
+2021-08-31 16:45:00.663  INFO 4656 --- [main] c.a.l.p.ProjectLibraryBootApplication    : Starting ProjectLibraryBootApplication using Java 1.8.0_301 on User-PC with PID 4656 (D:\ISavedItBeforeMakingRESTandSpringJPA\project_library_boot\project_library_boot\target\classes started by Professional in D:\ISavedItBeforeMakingRESTandSpringJPA\project_library_boot\project_library_boot)
+2021-08-31 16:45:00.665  INFO 4656 --- [main] c.a.l.p.ProjectLibraryBootApplication    : No active profile set, falling back to default profiles: default
+2021-08-31 16:45:02.806  INFO 4656 --- [main] c.a.l.p.ProjectLibraryBootApplication    : Started ProjectLibraryBootApplication in 2.434 seconds (JVM running for 2.788)
+2021-08-31 16:45:23.320  INFO 4656 --- [http-nio-8080-exec-1] c.a.l.p.c.RegistrationController         : Subscription arranged: Subscription{username='ivan', bookId=2, startOfThePeriod=2021-08-31, endOfThePeriod=2021-09-30}
